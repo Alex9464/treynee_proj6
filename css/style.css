@@ -421,15 +421,9 @@ header {
         border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo-1:hover,
-.logo-2:hover,
-.logo-3:hover,
-.logo-4:hover,
-.logo-5:hover,
-.logo-6:hover {
+.client-link:hover {
     fill: var(--accent-color);
-    border: 1px solid var(--accent-color);
-     
+    border: 1px solid var(--accent-color);    
 }
 
 /* ----------------------Footer------------------- */
@@ -608,14 +602,29 @@ footer {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    text-align: center;
-    justify-content: center;
+    display: flex;
+    align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: transparent;
     border-radius: 50%;
 }
 
-.modal-title {
+.btn-modal:focus {
+    outline: none;
+}
+
+.btn-modal:hover .modal-close,
+.btn-modal:focus .modal-close {
+    fill: var(--accent-color);
+}
+
+.form {
+    margin-left: 40px;
+    margin-right: 40px;
+    appearance: none;
+}
+
+.title-form {
     display: block;
     font-family: 'Roboto';
     font-style: normal;
@@ -626,23 +635,45 @@ footer {
     letter-spacing: 0.03em;
     color: var(--title-text-color);
     margin-top: 40px;
-    margin-bottom: 12px;
-}
-
-.form {
-    outline: 1px solid teal;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
-.form-field {
-    outline: 1px solid tomato;
-    position: relative;
-    margin-top: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .form-label {
+    position: relative;
+    display: block;
+    margin-top: 28px;
+}
+
+.form-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding-left: 42px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    outline-color: var(--accent-color);
+}
+
+.form-input:focus + .form-icon {
+    fill: var(--accent-color);
+}
+
+.form-input:focus ~ .title-input,
+.form-input:not(:placeholder-shown) ~ .title-input {
+    transform: translateY(-36px);
+}
+
+.form-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+}
+
+.title-input {
+    position: absolute;
+    top: 50%;
+    left: 42px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -650,53 +681,80 @@ footer {
     line-height: 14px;
     letter-spacing: 0.01em;
     color: #757575;
+    transform: translateY(-50%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-input {
+.input-coments {
     width: 100%;
-    height: 40px;
-    padding-left: 42px;
+    resize: none;
+    padding: 12px 16px;
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
-}
-
-.form-icon {
-    position: absolute;
-    top: 11px;
-    left: 12px;
+    outline-color: var(--accent-color);
 }
 
 .coments {
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    top: -16px;
+    left: 0;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.coments .form-field {
-    padding: 12px 16px;
-    resize: none;
-}
-
-.rules {
-    font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 1.7%;
-letter-spacing: 0.03em;
-text-decoration-line: underline;
-color: var(--accent-color);
+.input-coments:focus + .coments,
+.input-coments:not(:placeholder-shown) + .coments {
+    transform: translateX(42px);
 }
 
 .checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    display: block;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 20px;
     margin-bottom: 30px;
-    text-align: center;
+}
+
+.checkbox-text {
+    display: inline-block;
+    margin-left: 7px;
+}
+
+.checkbox:hover + .icon,
+.checkbox:focus + .icon {
+    fill: var(--accent-color);
+}
+
+.checkbox:checked + .icon {
+    fill: var(--accent-color);
+    background-color: var(--accent-color);
+    background-image: url(../img/icomoon/SVG/check.svg);
+    background-size: contain;
+    background-origin: border-box;
 }
 
 .form-btn {
     display: block;
-    margin: 0 auto;
-    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rules {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7%;
+    letter-spacing: 0.03em;
+    text-decoration-line: underline;
+    color: var(--accent-color);
 }
 
 /* -----------------------portfolio--------------------- */
